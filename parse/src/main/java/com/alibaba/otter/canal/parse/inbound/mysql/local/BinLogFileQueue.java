@@ -26,6 +26,7 @@ import com.alibaba.otter.canal.parse.exception.CanalParseException;
 public class BinLogFileQueue {
 
     private String              baseName       = "mysql-bin.";
+    private Pattern binLogPattern = Pattern.compile(baseName + "\\d+$");
     private List<File>          binlogs        = new ArrayList<File>();
     private File                directory;
     private ReentrantLock       lock           = new ReentrantLock();
@@ -220,9 +221,8 @@ public class BinLogFileQueue {
         files.addAll(FileUtils.listFiles(directory, new IOFileFilter() {
 
             public boolean accept(File file) {
-                Pattern pattern = Pattern.compile("\\d+$");
-                Matcher matcher = pattern.matcher(file.getName());
-                return file.getName().startsWith(baseName) && matcher.find();
+                Matcher matcher = binLogPattern.matcher(file.getName());
+                return matcher.find();
             }
 
             public boolean accept(File dir, String name) {

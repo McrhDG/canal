@@ -128,6 +128,7 @@ public class RdsLocalBinlogEventParser extends LocalBinlogEventParser implements
             localBinLogConnection.setNeedWait(true);
             localBinLogConnection.setServerId(serverId);
             localBinLogConnection.setParserListener(this);
+            localBinLogConnection.setRdsOssMode(true);
         }
         return connection;
     }
