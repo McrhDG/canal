@@ -32,8 +32,8 @@
 	</bean>
 	
 	<bean id="baseEventParser" class="com.alibaba.otter.canal.parse.inbound.mysql.rds.RdsBinlogEventParserProxy" abstract="true">
-		<property name="accesskey" value="${canal.aliyun.accesskey:}" />
-		<property name="secretkey" value="${canal.aliyun.secretkey:}" />
+		<property name="accesskey" value="LTAI5tRknj312m4oLJfh8nnz" />
+		<property name="secretkey" value="a9vg7FjiEqtqyWK9er67TI8oQLsZ4u" />
 		<property name="instanceId" value="${canal.instance.rds.instanceId:}" />
 	</bean>
 </beans>

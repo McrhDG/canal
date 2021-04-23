@@ -181,6 +181,9 @@ public class BinlogDownloadQueue {
         String fileName = binlogFile.getFileName();
 
         downloadLink = downloadLink.trim();
+        // 使用连接内网
+        downloadLink = downloadLink.replace("https://rdslog-bj-v4.oss-cn-beijing.aliyuncs.com",
+                "http://rdslog-bj-v4.oss-cn-beijing-internal.aliyuncs.com");
         CloseableHttpClient httpClient = null;
         if (downloadLink.startsWith("https")) {
             HttpClientBuilder builder = HttpClientBuilder.create();
