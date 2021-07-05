@@ -84,7 +84,9 @@
 		<level value="INFO" />
 		<appender-ref ref="CANAL-ROOT" />
 	</logger>
-	<root level="WARN">
+	<logger name="com.alibaba.otter.canal.server.embedded.CanalServerWithEmbedded" level="WARN" />
+	<logger name="com.alibaba.otter.canal.server.netty" level="WARN" />
+	<root level="INFO">
 		<!--<appender-ref ref="STDOUT"/>-->
 		<appender-ref ref="CANAL-ROOT" />
 	</root>
