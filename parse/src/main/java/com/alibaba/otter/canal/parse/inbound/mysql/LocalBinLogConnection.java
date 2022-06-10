@@ -27,7 +27,7 @@ import com.taobao.tddl.dbsync.binlog.event.QueryLogEvent;
 
 /**
  * local bin log connection (not real connection)
- * 
+ *
  * @author yuanzu Date: 12-9-27 Time: 下午6:14
  */
 public class LocalBinLogConnection implements ErosaConnection {
@@ -44,7 +44,7 @@ public class LocalBinLogConnection implements ErosaConnection {
     private boolean             isRdsOssMode = false;
 
     /** rdsOosMode 主从信息 */
-    private final Set<Long> rdsOssMasterSlaveInfo = new HashSet<Long>(4);
+    private final Set<Long> rdsOssMasterSlaveInfo = new HashSet<>(4);
 
     private boolean firstUpdateRdsOssMasterSlave = true;
 
@@ -165,8 +165,6 @@ public class LocalBinLogConnection implements ErosaConnection {
                 } else if (!rdsOssMasterSlaveInfo.contains(event.getServerId())) {
                     // 主从节点信息之外的节点信息
                     throw new ServerIdNotMatchException("unexpected rds serverId " + serverId + " in binlog file !");
-                } else {
-                    logger.debug("11111111");
                 }
             } else {
                 throw new ServerIdNotMatchException("unexpected serverId " + serverId + " in binlog file !");

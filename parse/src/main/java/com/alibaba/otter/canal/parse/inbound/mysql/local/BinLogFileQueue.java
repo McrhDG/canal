@@ -18,15 +18,15 @@ import com.alibaba.otter.canal.parse.exception.CanalParseException;
 
 /**
  * 维护binlog文件列表
- * 
+ *
  * @author jianghang 2012-7-7 下午03:48:05
  * @version 1.0.0
  */
 public class BinLogFileQueue {
 
     private String              baseName       = "mysql-bin.";
+    private List<File>          binlogs        = new ArrayList<>();
     private Pattern binLogPattern = Pattern.compile(baseName + "\\d+$");
-    private List<File>          binlogs        = new ArrayList<File>();
     private File                directory;
     private ReentrantLock       lock           = new ReentrantLock();
     private Condition           nextCondition  = lock.newCondition();
@@ -78,7 +78,7 @@ public class BinLogFileQueue {
 
     /**
      * 根据前一个文件，获取符合条件的下一个binlog文件
-     * 
+     *
      * @param pre
      * @return
      */
@@ -142,7 +142,7 @@ public class BinLogFileQueue {
 
     /**
      * 根据前一个文件，获取符合条件的下一个binlog文件
-     * 
+     *
      * @param pre
      * @return
      * @throws InterruptedException

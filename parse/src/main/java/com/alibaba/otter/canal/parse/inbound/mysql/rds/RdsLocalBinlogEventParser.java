@@ -21,7 +21,7 @@ import com.alibaba.otter.canal.protocol.position.LogPosition;
 
 /**
  * 基于rds binlog备份文件的复制
- * 
+ *
  * @author agapple 2017年10月15日 下午1:27:36
  * @since 1.0.25
  */
