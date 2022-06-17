@@ -3,6 +3,7 @@ package com.alibaba.otter.canal.parse.inbound.mysql.rds.request;
 import java.util.Date;
 
 import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONReader;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
 
@@ -49,7 +50,7 @@ public class DescribeBinlogFilesRequest extends AbstractRequest<DescribeBinlogFi
         String result = EntityUtils.toString(response.getEntity());
         DescribeBinlogFileResult describeBinlogFileResult = JSON.parseObject(result,
             new TypeReference<DescribeBinlogFileResult>() {
-            });
+            }, JSONReader.Feature.SupportSmartMatch);
         return describeBinlogFileResult;
     }
 }
