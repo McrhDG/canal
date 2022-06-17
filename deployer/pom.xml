@@ -177,6 +177,25 @@
             <build>
                 <plugins>
                     <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.8</version>
+                        <executions>
+                            <execution>
+                                <id>ant-test</id>
+                                <phase>package</phase>
+                                <configuration>
+                                    <tasks>
+                                        <fixcrlf srcdir="./src/main/bin" includes="*.sh" eol="unix"/>
+                                    </tasks>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
                         <artifactId>maven-assembly-plugin</artifactId>
                         <configuration>
                             <!-- 发布模式使用的maven assembly插件描述文件 -->
